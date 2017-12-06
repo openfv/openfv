@@ -1,4 +1,4 @@
-The Open Font Version logo is a modification of the [vector design by Freepik](https://www.freepik.com/free-vector/fantastic-logos-for-carpentry_925285.htm) and is used according to the following associated license:
+The Open Font Version logo is a modification of the [vector design by Freepik](https://www.freepik.com/free-vector/fantastic-logos-for-carpentry_925285.htm) and is used under the following associated image license:
 
 ```
 You are free to use this image:

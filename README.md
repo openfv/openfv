@@ -28,7 +28,7 @@ Font version strings are compiled in the nameID 5 record of the font OpenType na
 >
 >The string must contain a version number of the following form: one or more digits (0-9) of value less than 65,535, followed by a period, followed by one or more digits of value less than 65,535. Any character other than a digit will terminate the minor number. A character such as “;” is helpful to separate different pieces of version information.
 >
->The first such match in the string can be used by installation software to compare font versions. Note that some installers may require the string to start with “Version >”, followed by a version number as above.
+>The first such match in the string can be used by installation software to compare font versions. Note that some installers may require the string to start with “Version ”, followed by a version number as above.
 
 ([Source](https://www.microsoft.com/typography/otspec/name.htm#nameIDs))
 

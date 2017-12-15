@@ -4,10 +4,9 @@
 
 ## Table of Contents
 
-- Summary
-- Definitions
 - Introduction and Rationale
-- Specification
+- Definitions
+- OpenFV Specification
 - License
 
 ## Introduction and Rationale
@@ -35,6 +34,16 @@ Font version strings are compiled in the nameID 5 record of the font OpenType na
 The OpenType specification defines a version number as `MAJOR.MINOR`.  Neither a `PATCH` version number nor version number metadata strings are permitted under the OpenType specification as the definition above states that "any character other than a digit will terminate the minor number".  Font versioning deviates further from the SemVer approach as a result of the font compiler convention to include leading zeroes in `MINOR` version numbers.  The interpretation of version numbers with this approach is not intuitive as `Version 1.1`, `Version 1.01`, and `Version 1.001` are all defined as "different" versions though these numbers may all represent the same stage of development (i.e. one iteration beyond the first major release) based upon different conventions established by project author(s) or by the tools that they use to compile fonts from their source code.  The OpenType nameID 5 record definition does not specify a format to indicate the development status of a typeface project relative to its version milestone, nor does it define an approach to maintain information about the source code state at build time within the font build artifact.  The lack of a formal standard for font versioning to address the above issues provided the impetus for this project.
 
 The Open Font Version (OpenFV) Specification represents a compliant extension of the OpenType name table nameID 5 specification that is intended to serve as a typeface software versioning standard for the development, testing, release, and use of typeface source code and the build artifacts (fonts) that are derived from the source.  This specification defines a version string syntax with semantic underpinnings that maintains informative data for both developers and users.
+
+
+## Definitions
+
+- *build* - a compiled file of any typeface build artifact type that is defined by the state of the source code at build time
+- *metadata* - data that fall outside of the OpenFV definition of the version number string
+- *release* - source code and compiled build artifact state milestone that is intended for production level use by the end user
+- *development* - source code and compiled build artifact state that includes incomplete implementation of work to achieve a release milestone
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 
 ## License

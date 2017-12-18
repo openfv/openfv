@@ -1,4 +1,6 @@
-# <img src="https://github.com/openfv/openfv/raw/master/img/openfv-logo-mini-crunch.png" alt="Open Font Version Specification"> Open Font Version Specification
+<img src="https://github.com/openfv/openfv/raw/master/img/openfv-header-crunch.png" alt="Open Font Version Specification"> 
+
+# Open Font Version Specification
 
 **Version 0.1.0**
 

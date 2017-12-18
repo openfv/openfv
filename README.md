@@ -47,6 +47,35 @@ The Open Font Version (OpenFV) Specification represents a compliant extension of
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
+## Examples
+
+Examples of version strings that meet the OpenFV specification include:
+
+##### Version number only
+```
+Version 1.001
+```
+
+##### Version number and development status label
+```
+Version 1.001; DEV
+Version 1.001; RELEASE
+```
+
+##### Version number and source code state label
+
+```
+Version 1.001; [abcd123]
+```
+
+##### Version number, source code state label, and development status label
+```
+Version 1.001; [abcd123]-dev
+Version 1.001; [abcd123]-release
+```
+
+Any number of additional metadata strings are permitted after the above string formats with the use of semicolon delimiters.  The format of these additional metadata substrings are not further specified as part of the OpenFV specification.
+
 
 ## License
 

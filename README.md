@@ -41,11 +41,43 @@ The Open Font Version (OpenFV) Specification represents a compliant extension of
 ## Definitions
 
 - *build* - a compiled file of any typeface build artifact type that is defined by the state of the source code at build time
-- *metadata* - data that fall outside of the OpenFV definition of the version number string
-- *release* - source code and compiled build artifact state milestone that is intended for production level use by the end user
 - *development* - source code and compiled build artifact state that includes incomplete implementation of work to achieve a release milestone
+- *metadata* - data that fall outside of the OpenFV definition of the version number string
+- *POSITION ONE* - the first substring position of a version string
+- *POSTITION TWO* - the second substring position of a version string
+- *release* - source code and compiled build artifact state milestone that is intended for production level use by the end user
+- *status* - a binary indicator of the development/release status of the source code
+- *state* - an indicator of source code state at a typeface build artifact build time
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+
+
+## OpenFV Specification
+
+### Version String Syntax
+
+Version strings in the OpenType name table nameID 5 record MUST be defined as semicolon delimited substrings of mandatory and optional data elements.
+
+The OpenFV Specification syntax for the substring elements of the full version string is:
+
+```
+[font version number]; [status/state metadata]; [other metadata]
+```
+
+The font version string MUST include:
+
+- The font version number substring
+
+The font version string MAY include:
+
+- Status/state metadata substring
+- Other metdata substrings
+
+The font version string MUST follow the syntax:
+
+- The font version number substring MUST be at substring POSITION ONE
+- If metadata substrings are included, they MUST be delimited by a semicolon followed by zero or one space character before the metadata
+- If status/state metadata are included in the version string, these data MUST be included at substring POSITION TWO
 
 ## Examples
 

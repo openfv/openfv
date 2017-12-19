@@ -100,7 +100,7 @@ The `MAJOR.MINOR` version number SHALL be intended to represent a release milest
 The semantics for changes to the version number SHALL include an increment by the value of 1 of:
 
 - `MAJOR` version number for completion of major project specific milestones, including the transition from the pre-production development phase to release phase
-- `MINOR` version number for functionality and hotfix changes. Examples include:
+- `MINOR` version number for functionality, hotfix, and dependency changes. Examples include:
   - glyph design changes
   - addition/elimination/modification of hinting/instruction sets
   - addition/removal of glyphs

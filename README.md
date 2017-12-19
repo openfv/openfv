@@ -89,7 +89,8 @@ The font version string MUST follow the syntax:
 - The `MAJOR` version number SHOULD be set to 0 during the pre-production phase of development before the initial release.  `MAJOR` version number 0 SHALL indicate this pre-production phase of development.
 - The `MAJOR` version number MUST be set to 1 at the time of the initial release to end users. The conversion from `MAJOR` version number 0 to `MAJOR` version number 1 SHALL indicate the authors' acknowledgment that source code and build artifacts meet the OpenFV release definition.
 - The font version number substring MUST NOT include metadata
-- The font version number substring MAY include a semicolon at its final character position if metadata follows this substring at the next substring position.  Whitespace characters SHOULD NOT be included between the `MINOR` version number and the semicolon.
+- The font version number substring MAY include a semicolon at its final character position if metadata follow this substring at the next substring position.  Whitespace characters SHOULD NOT be included between the `MINOR` version number and the semicolon.
+- The font version number substring MUST NOT include a semicolon if there are no metadata following the version number substring
 
 
 #### Version Number Substring Semantics

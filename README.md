@@ -44,7 +44,7 @@ The Open Font Version (OpenFV) Specification represents a compliant extension of
 - *development* - source code and compiled build artifact state that includes incomplete implementation of work to achieve a release milestone
 - *metadata* - data that fall outside of the OpenFV definition of the version number string
 - *POSITION ONE* - the first substring position of a version string
-- *POSTITION TWO* - the second substring position of a version string
+- *POSITION TWO* - the second substring position of a version string
 - *release* - source code and compiled build artifact state milestone that is intended for production level use by the end user
 - *status* - a binary indicator of the development/release status of the source code
 - *state* - an indicator of source code state at a typeface build artifact build time

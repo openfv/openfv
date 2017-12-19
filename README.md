@@ -1,4 +1,4 @@
-<img src="https://github.com/openfv/openfv/raw/master/img/openfv-header-crunch.png" alt="Open Font Version Specification"> 
+<img src="https://github.com/openfv/openfv/raw/master/img/openfv-header-crunch.png" alt="Open Font Version Specification">
 
 # Open Font Version Specification
 
@@ -78,6 +78,33 @@ The font version string MUST follow the syntax:
 - The font version number substring MUST be at substring POSITION ONE
 - If metadata substrings are included, they MUST be delimited by a semicolon followed by zero or one space character before the metadata
 - If status/state metadata are included in the version string, these data MUST be included at substring POSITION TWO
+
+### Version Number Substring
+
+#### Version Number Substring Format
+
+- The font version number substring MUST be defined as the capitalized word "Version", a space, `MAJOR` version number digit(s), a period, `MINOR` version number digits.
+- The `MAJOR` version number MUST have between one and three digits with a minimum value of 0 and a maximum value of 999.
+- The `MINOR` version number MUST have exactly three digits.  For numbers less than 100, leading zeroes MUST be used in the `MINOR` version.  The `MINOR` version number MUST have a minimum value of 000 and a maximum value of 999.
+- The `MAJOR` version number SHOULD be set to 0 during the pre-production phase of development before the initial release.  `MAJOR` version number 0 SHALL indicate this pre-production phase of development.
+- The `MAJOR` version number shall be set to 1 at the time of the initial release to end users. The conversion from `MAJOR` version number 0 to `MAJOR` version number 1 SHALL indicate the authors' acknowledgment that source code and build artifacts meet the OpenFV release definition.
+- The font version number string MUST NOT include metadata
+- The font version number string MAY include a semicolon at its final character position if metadata follows this substring.  Whitespace characters SHOULD NOT be included between the `MINOR` version number and the semicolon.
+
+
+#### Version Number Substring Semantics
+
+The `MAJOR.MINOR` version number SHALL be intended to represent a release milestone that MAY be incompletely implemented in the source that is defined with a  `MAJOR.MINOR` version number. The `MAJOR.MINOR` version number SHALL NOT be intended to represent source code state at build time in build artifacts and MAY NOT be unique across build artifacts as work is carried out to achieve a `MAJOR.MINOR` version milestone.  Upon completion of the source code changes to achieve a release milestone, a version number increment SHOULD be performed immediately prior to making changes to the source code that are intended for a future release milestone.  Pre-release source status SHOULD be distinguished from release source status through the use of metadata defined by the OpenFV specification (see below).
+
+The semantics for changes to the version number SHALL include an increment by the value of 1 of:
+
+- `MAJOR` version number for completion of major project specific milestones, including the transition from the pre-production development phase to release phase
+- `MINOR` version number for functionality and hotfix changes. Examples include:
+  - glyph design changes
+  - addition/elimination/modification of hinting/instruction sets
+  - addition/removal of glyphs
+  - design flaw fixes
+  - changes to build processes
 
 ## Examples
 

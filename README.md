@@ -106,6 +106,7 @@ The semantics for changes to the version number SHALL include an increment by th
   - addition/removal of glyphs
   - design flaw fixes
   - changes to build processes
+  - updated build dependencies
 
 ## Examples
 

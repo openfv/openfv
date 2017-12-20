@@ -95,12 +95,13 @@ The font version string MUST follow the syntax:
 
 #### Version Number Substring Semantics
 
-The `MAJOR.MINOR` version number SHALL be intended to represent a release milestone that MAY be incompletely implemented in the source that is defined with a  `MAJOR.MINOR` version number. The `MAJOR.MINOR` version number SHALL NOT be intended to represent source code state at build time in build artifacts and MAY NOT be unique across build artifacts as work is carried out to achieve a `MAJOR.MINOR` version milestone.  Development source status SHOULD be distinguished from release source status through the use of metadata defined by the OpenFV specification (see metadata guidelines below).
-
+- The `MAJOR.MINOR` version number SHALL be intended to represent a release milestone that MAY be incompletely implemented in the source that is defined with a  `MAJOR.MINOR` version number. The `MAJOR.MINOR` version number SHALL NOT be intended to represent source code state at build time in build artifacts and MAY NOT be unique across build artifacts as work is carried out to achieve a `MAJOR.MINOR` version milestone.  
+- Development source status SHOULD be distinguished from release source status through the use of metadata defined by the OpenFV specification (see metadata guidelines below).
 - The `MAJOR` version number SHOULD be set to 0 during the pre-production phase of development before the initial release.  `MAJOR` version number 0 SHALL indicate this pre-production phase of development.
 - The `MAJOR` version number MUST be set to 1 at the time of the initial release to end users. The conversion from `MAJOR` version number 0 to `MAJOR` version number 1 SHALL indicate the authors' acknowledgment that source code and build artifacts meet the OpenFV release definition.
+- Upon completion of the source code changes to achieve a release milestone, a version number increment SHOULD be performed immediately prior to making changes to the source code that are intended for a future release milestone.
 
-The semantics for further changes to the version number SHALL include an increment by the value of 1 of the:
+The semantics for changes to the version number SHALL include an increment by the value of 1 of the:
 
 - `MAJOR` version number for completion of major project specific milestones
 - `MINOR` version number for functionality, hotfix, and dependency changes. Examples include:
@@ -111,8 +112,7 @@ The semantics for further changes to the version number SHALL include an increme
   - changes to build processes
   - updated build dependencies
 
-- When the `MAJOR` version is incremented, the `MINOR` version number SHALL be reset to a value of 000.
-- Upon completion of the source code changes to achieve a release milestone, a version number increment SHOULD be performed immediately prior to making changes to the source code that are intended for a future release milestone.  
+When the `MAJOR` version number is incremented, the `MINOR` version number SHALL be reset to a value of 000.
 
 ## Examples
 

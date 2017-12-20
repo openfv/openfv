@@ -115,14 +115,29 @@ The semantics for changes to the version number SHALL include an increment by th
 
 When the `MAJOR` version number is incremented, the `MINOR` version number SHALL be reset to a value of 000.
 
+
 ### State Substring
 
+- The state substring SHALL define source code state at font build time
 - The state substring is OPTIONAL
 - The state substring MUST be located at substring POSITION TWO
 - The state substring MUST include characters within the set: `a-zA-Z0-9_-.`
 - The state substring MUST include the delimiter `[` as the initial character and the delimiter `]` as the final character of the substring.  The string contents inside these delimiters SHALL be defined as the state label
 - The state label SHOULD be 50 characters or less
 - The state substring MAY include a status substring (see guidelines below)
+
+
+### Status Substring
+
+- The status substring SHALL define the binary development/release status of source code and font builds as defined in the Definitions section
+- The status substring is OPTIONAL
+- The status substring MUST be located at substring POSITION TWO
+- The status substring must use one of the following case sensitive formats with zero or one preceding space characters for version strings that DO NOT include a state substring:
+	- `DEV`
+	- `RELEASE`
+- The status substring MUST use one of the following case sensitive formats without preceding space characters for version strings that DO include a state substring:
+	- `-dev`
+	- `-release`
 
 
 ## Examples

@@ -116,7 +116,7 @@ The semantics for changes to the version number SHALL include an increment by th
 When the `MAJOR` version number is incremented, the `MINOR` version number SHALL be reset to a value of 000.
 
 
-### State Substring
+### State Metadata Substring
 
 - The state substring SHALL define source code state at font build time.
 - The state substring is OPTIONAL.
@@ -127,7 +127,7 @@ When the `MAJOR` version number is incremented, the `MINOR` version number SHALL
 - The state substring MAY include a status substring (see guidelines below).
 
 
-### Status Substring
+### Status Metadata Substring
 
 - The status substring SHALL define the binary development/release status of source code and font builds as defined in the Definitions section.
 - The status substring is OPTIONAL.
@@ -139,6 +139,12 @@ When the `MAJOR` version number is incremented, the `MINOR` version number SHALL
 	- `-dev`
 	- `-release`
 
+### Other Metadata Substrings
+
+- Other Metadata substrings are OPTIONAL.
+- Other Metadata substrings MUST follow all version number substring and state/status substring data with semicolon delimiters followed by zero or one space character preceding the Other Metadata substring.
+- The version string MAY include more than one Other Metadata substrings.
+- Each Other Metadata substring included in the version string SHOULD be limited to 50 characters or less.
 
 ## Examples
 
@@ -165,6 +171,13 @@ Version 1.001; [abcd123]
 ```
 Version 1.001; [abcd123]-dev
 Version 1.001; [abcd123]-release
+```
+
+##### Version number, source code state label, development status label, and other metadata
+
+```
+Version 1.001; [abcd123]-dev; ttfautohint v1.7
+Version 1.001; [abcd123]-release; ttfautohint v1.7
 ```
 
 Any number of additional metadata strings are permitted after the above string formats with the use of semicolon delimiters.  The format of these additional metadata substrings are not further specified as part of the OpenFV specification.

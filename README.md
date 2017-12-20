@@ -115,6 +115,16 @@ The semantics for changes to the version number SHALL include an increment by th
 
 When the `MAJOR` version number is incremented, the `MINOR` version number SHALL be reset to a value of 000.
 
+### State Substring
+
+- The state substring is OPTIONAL
+- The state substring MUST be located at substring POSITION TWO
+- The state substring MUST include characters within the set: `a-zA-Z0-9_-.`
+- The state substring MUST include the delimiter `[` as the initial character and the delimiter `]` as the final character of the substring.  The string contents inside these delimiters SHALL be defined as the state label
+- The state label SHOULD be 50 characters or less
+- The state substring MAY include a status substring (see guidelines below)
+
+
 ## Examples
 
 Examples of version strings that meet the OpenFV specification include:

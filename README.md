@@ -121,7 +121,7 @@ When the `MAJOR` version number is incremented, the `MINOR` version number SHALL
 - The state substring SHALL define source code state at font build time.
 - The state substring is OPTIONAL.
 - The state substring MUST be located at substring POSITION TWO of the font version string.
-- The state substring MUST include characters within the set: `a-zA-Z0-9_-.`
+- The state substring MUST include characters within the set: `a-zA-Z0-9._-`
 - The state substring MUST include the delimiter `[` as the initial character and the delimiter `]` as the final character of the substring.  The string contents inside these delimiters SHALL be defined as the state label.
 - The state label SHOULD be 50 characters or less.
 - The state substring MAY include a status substring (see guidelines below).

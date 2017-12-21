@@ -180,9 +180,6 @@ Version 1.001; [abcd123]-dev; ttfautohint v1.7
 Version 1.001; [abcd123]-release; ttfautohint v1.7
 ```
 
-Any number of additional metadata strings are permitted after the above string formats with the use of semicolon delimiters.  The format of these additional metadata substrings are not further specified as part of the OpenFV specification.
-
-
 ## License
 
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)

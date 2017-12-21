@@ -2,9 +2,9 @@
 
 # Open Font Version Specification
 
-**Version 0.1.0**
+**Version 0.1.1**
 
-**Stage: Experimental, unstable**
+**Status: Experimental, unstable draft**
 
 ## Table of Contents
 

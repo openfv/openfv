@@ -1,5 +1,10 @@
 ## Changelog
 
+### v0.1.2
+
+- revised specification of mandatory character set in State metadata substring to:
+	- "The state substring MUST NOT include characters outside of the set: `a-zA-Z0-9._-`"
+
 ### v0.1.1
 
 - revised the specification description of "Stage" to "Status" in order to maintain consistency with terminology used in the specification

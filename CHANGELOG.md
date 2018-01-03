@@ -1,5 +1,9 @@
 ## Changelog
 
+## v0.2.1
+
+- Revised Introduction and Rationale section with SemVer v OpenFV clarifications to emphasize that this is not an attempt at SemVer for typeface software, rather it is an attempt to create semantic versioning for typeface software. Hopefully this improves understanding that these semantics do not necessarily overlap between the SemVer approach and the approach here. They need to be defined as part of the work here.
+
 ### v0.2.0
 
 - added head table, fontRevision record specification (#3)

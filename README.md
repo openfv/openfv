@@ -11,12 +11,12 @@
 - [Introduction and Rationale](#introduction-and-rationale)
 - [Definitions](#definitions)
 - [OpenFV Specification](#openfv-specification)
-	- name Table ID 5 Record Specification
-	- head Table fontRevision Record Specification
-	- Version number semantics
+	- [name Table ID 5 Record Specification](#1-name-table-id-5-record-version-string)
+	- [head Table fontRevision Record Specification](#2-head-table-fontrevision-record-version-string)
+	- [Version number semantics](#3-version-number-semantics)
 - [Examples](#examples)
-	- name Table ID 5 Record Examples
-	- head Table fontRevision Record Examples
+	- [name Table ID 5 Record Examples](#name-table-id-5-record)
+	- [head Table fontRevision Record Examples](#head-table-fontrevision-record)
 - [License](#license)
 
 ## Introduction and Rationale

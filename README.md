@@ -29,7 +29,7 @@ Software version strings commonly include the following semantics:
 
 The established and widely used [SemVer](https://github.com/semver/semver) approach to semantic software versioning uses the version number format `MAJOR.MINOR.PATCH` with a software API-based standard for incremented values during the software development process.  Additional metadata are commonly appended to this SemVer syntax to indicate the readiness of the software for general use by the end user as work progresses towards a release milestone (e.g. `v1.2.0-alpha`, `v1.2.0-beta`,`v1.2.0-rc.1`, `v1.2.0-rc.2`, `v1.2.0`).  Projects that create compiled binary artifacts from source code frequently associate a label with the build artifact in order to establish a record of the state of the source code at build time (e.g. a git commit SHA1 hash string).
 
-There are concepts contained in the SemVer version syntax and version number semantics that apply to the development of typeface software and are desirable during the development process; however, these are not defined under the OpenType font versioning specification. Typeface software version strings are compiled into the nameID 5 record of the OpenType name table and the fontRevision record of the OpenType head table.  These records are defined as follows:
+These versioning concepts apply to the development of typeface software and are desirable during the development process; however, they are not all defined under the OpenType font versioning specification. Typeface software version strings are compiled into the nameID 5 record of the OpenType name table and the fontRevision record of the OpenType head table.  These records are defined as follows:
 
 ##### OpenType name table ID 5 record definition
 

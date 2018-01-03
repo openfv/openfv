@@ -1,5 +1,9 @@
 ## Changelog
 
+### v0.1.3
+
+- revised incorrect word "iterate" to "incremented" in Introduction
+
 ### v0.1.2
 
 - revised specification of mandatory character set in State metadata substring to:

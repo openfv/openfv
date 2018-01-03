@@ -2,7 +2,7 @@
 
 # Open Font Version Specification
 
-**Version 0.1.3**
+**Version 0.2.0**
 
 **Status: Experimental, unstable draft**
 
@@ -11,7 +11,12 @@
 - [Introduction and Rationale](#introduction-and-rationale)
 - [Definitions](#definitions)
 - [OpenFV Specification](#openfv-specification)
+	- name Table ID 5 Record Specification
+	- head Table fontRevision Record Specification
+	- Version number semantics
 - [Examples](#examples)
+	- name Table ID 5 Record Examples
+	- head Table fontRevision Record Examples
 - [License](#license)
 
 ## Introduction and Rationale
@@ -22,11 +27,11 @@ Software version strings commonly include the following semantics:
  - the readiness of the source code for production level release to end users
  - the source code state at build time
 
-The established [semantic versioning](https://github.com/semver/semver) (SemVer) approach uses the version number format `MAJOR.MINOR.PATCH` with a software API-based standard for incremented values during the software development process.  Additional metadata are commonly appended to this SemVer syntax to indicate the readiness of the software for general use by the end user as work progresses towards a release milestone (e.g. `v1.2.0-alpha`, `v1.2.0-beta`,`v1.2.0-rc.1`, `v1.2.0-rc.2`, `v1.2.0`).  Projects that create compiled binary artifacts from source code frequently associate a label with the build artifact in order to identify and record the state of the source code at build time (e.g. the git commit SHA1 hash string).
+The established [semantic versioning](https://github.com/semver/semver) (SemVer) approach uses the version number format `MAJOR.MINOR.PATCH` with a software API-based standard for incremented values during the software development process.  Additional metadata are commonly appended to this SemVer syntax to indicate the readiness of the software for general use by the end user as work progresses towards a release milestone (e.g. `v1.2.0-alpha`, `v1.2.0-beta`,`v1.2.0-rc.1`, `v1.2.0-rc.2`, `v1.2.0`).  Projects that create compiled binary artifacts from source code frequently associate a label with the build artifact in order to establish a record of the state of the source code at build time (e.g. a git commit SHA1 hash string).
 
-The SemVer approach cannot be used in typeface software versioning as a result of the way that version strings are specified under OpenType.  Typeface software version strings are compiled into the nameID 5 record of the OpenType font binary name table.  This name table record is specified under OpenType as:
+The SemVer approach is not defined under the OpenType font versioning specification.  Typeface software version strings are compiled into the nameID 5 record of the OpenType name table and the fontRevision record of the OpenType head table.  These records are defined as follows:
 
-##### OpenType name table nameID 5 record definition
+##### OpenType name table ID 5 record definition
 
 >Version string. Should begin with the syntax 'Version <number>.<number>' (upper case, lower case, or mixed, with a space between “Version” and the number).
 >
@@ -36,9 +41,15 @@ The SemVer approach cannot be used in typeface software versioning as a result o
 
 ([Source](https://www.microsoft.com/typography/otspec/name.htm#nameIDs))
 
-The OpenType specification defines a version number as `MAJOR.MINOR`.  Neither a `PATCH` version number nor version number metadata strings are permitted under the OpenType specification.  Font versioning deviates further from the SemVer approach as a result of the font compiler convention to include leading zeroes in `MINOR` version numbers.  The interpretation of version numbers with this approach is not intuitive as `Version 1.1`, `Version 1.01`, and `Version 1.001` are all defined as "different" versions though these numbers may all represent the same stage of development (i.e. one iteration beyond the first major release) based upon different conventions established by project author(s) or by the tools that they use to compile fonts from their source code.  The OpenType nameID 5 record definition does not specify a format to indicate the development status of a typeface project relative to its version milestone, nor does it define an approach to maintain information about the source code state at build time within the font build artifact.  The lack of a formal standard to address the above issues provided the impetus for this specification.
+##### OpenType head table fontRevision record definition
 
-The Open Font Version (OpenFV) Specification represents a compliant extension of the OpenType name table nameID 5 specification that is intended to serve as a typeface software versioning standard for the development, testing, release, and use of typeface source code and the build artifacts (fonts) that are derived from the source.  This specification defines a version string syntax with semantic underpinnings that maintains informative data for both developers and users.
+> Set by font manufacturer
+
+([Source](https://www.microsoft.com/typography/otspec/head.htm))
+
+The OpenType specification defines a version number as `MAJOR.MINOR`.  Neither a `PATCH` version number nor version number metadata strings are specified.  Font versioning deviates further from the SemVer approach as a result of the font compiler convention to include zero padding in `MINOR` version numbers.  While this is not always the case in nameID 5 records, this is a consistent format used in the head.fontRevision record.  The interpretation of version numbers with this approach is not intuitive as `Version 1.1`, `Version 1.01`, and `Version 1.001` are all defined as "different" versions though these numbers may all represent the same stage of development (i.e. one iteration beyond the first major release), differing due to conventions established by project author(s) or by the tools that they use to compile fonts from their source code.  These OpenType definitions do not specify a format to indicate the development status of a typeface project relative to its version milestone, nor do they define an approach to maintain information about the source code state at build time within the font build artifact.  The lack of a formal standard to address the above issues provided the impetus for this specification.
+
+The Open Font Version (OpenFV) Specification represents a compliant extension of the OpenType name table nameID 5 record and OpenType head.fontRevision record specifications that is intended to serve as a typeface software versioning standard for the development, testing, release, and use of typeface source code and the build artifacts (fonts) that are derived from the source.  This specification defines a version number string syntax with semantic underpinnings that maintains informative data for both developers and users.
 
 
 ## Definitions
@@ -57,9 +68,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## OpenFV Specification
 
-### Version String Syntax
+### 1. name Table ID 5 Record Version String
 
-Version strings in the OpenType name table nameID 5 record MUST be defined as semicolon delimited substrings of mandatory and optional data elements.
+#### a. Version String Syntax
+
+Version strings in the OpenType name table ID 5 record MUST be defined as semicolon delimited substrings of mandatory and optional data elements.
 
 The OpenFV Specification syntax for the substring elements of the full version string is:
 
@@ -76,28 +89,73 @@ The font version string MAY include:
 - Status/state metadata substring
 - Other metadata substrings
 
-The font version string MUST follow the syntax:
+#### b. Font Version Number Substring
 
-- The font version number substring MUST be located at substring POSITION ONE.
-- If metadata substrings are included, they MUST be delimited by a semicolon followed by zero or one space character before the metadata.
-- If status/state metadata are included in the version string, these data MUST be included at substring POSITION TWO.
+The font version number substring:
 
-### Version Number Substring
+- MUST be located at substring POSITION ONE.
+- MUST be defined as the capitalized word "Version", a space, `MAJOR` version number digit(s), a period, `MINOR` version number digits.
+- MUST NOT include metadata.
+- MAY include a semicolon at its final character position if metadata follow the font version number substring at substring POSITION TWO.  Whitespace characters SHOULD NOT be included between the `MINOR` version number and the semicolon.
+- MUST NOT include a semicolon if there are no metadata following the version number substring.
 
-#### Version Number Substring Format
+The `MAJOR` version number:
 
-- The font version number substring MUST be defined as the capitalized word "Version", a space, `MAJOR` version number digit(s), a period, `MINOR` version number digits.
-- The `MAJOR` version number MUST have between one and three digits with a minimum value of 0 and a maximum value of 999.
-- The `MINOR` version number MUST have exactly three digits.  For numbers less than 100, leading zeroes MUST be used in the `MINOR` version.  The `MINOR` version number MUST have a minimum value of 000 and a maximum value of 999.
-- The font version number substring MUST NOT include metadata.
-- The font version number substring MAY include a semicolon at its final character position if metadata follow this substring at substring POSITION TWO.  Whitespace characters SHOULD NOT be included between the `MINOR` version number and the semicolon.
-- The font version number substring MUST NOT include a semicolon if there are no metadata following the version number substring.
+- MUST have between one and three digits with a minimum value of 0 and a maximum value of 999.
+
+The `MINOR` version number:
+
+- MUST have exactly three digits.  For numbers less than 100, zero padding MUST be used in the `MINOR` version number.  The `MINOR` version number MUST have a minimum value of 000 and a maximum value of 999.
 
 
-#### Version Number Substring Semantics
+#### c. State Metadata Substring
+
+The State metadata substring:
+
+- SHALL define source code state at font build time.
+- is OPTIONAL.
+- MUST be located at substring POSITION TWO of the font version string.
+- MUST NOT include characters outside of the set: `a-zA-Z0-9._-`
+- MUST include the delimiter `[` as the initial character and the delimiter `]` as the final character of the substring.  The string contents inside these delimiters SHALL be defined as the "state label". The state label SHOULD be 50 characters or less.
+- MAY include a status substring (see below).
+
+
+#### d. Status Metadata Substring
+
+The Status metadata substring:
+
+- SHALL define the binary development/release status of source code and font builds as defined in the Definitions section.
+- is OPTIONAL.
+- MUST be located at substring POSITION TWO.
+- MUST use one of the following case sensitive formats with zero or one preceding space characters for version strings that DO NOT include a state substring:
+	- `DEV`
+	- `RELEASE`
+- MUST use one of the following case sensitive formats without preceding space characters for version strings that DO include a state substring:
+	- `-dev`
+	- `-release`
+
+#### e. Other Metadata Substrings
+
+Other metadata substrings:
+
+- are OPTIONAL.
+- MAY be included one or more times in the font version string
+- MUST follow all version number substring and state/status substring data with a semicolon delimiter followed by zero or one space character preceding each Other metadata substring.
+- SHOULD be limited to 50 characters or less.
+
+### 2. head table fontRevision Record Version String
+
+The font version number in the fontRevision record of the OpenType head table:
+
+- MUST be defined as `MAJOR` version number digit(s), a period, `MINOR` version number digits
+- MUST have a MAJOR version number that is between one and three digits in length with a minimum value of 0 and a maximum value of 999.
+- MUST have a `MINOR` version number that is exactly three digits in length.  For `MINOR` version numbers less than 100, zero padding MUST be used.  The `MINOR` version number MUST have a minimum value of 000 and a maximum value of 999.
+- MUST NOT include any characters before the `MAJOR` version number nor after the `MINOR` version number
+
+### 3. Version Number Semantics
 
 - The `MAJOR.MINOR` version number SHALL be intended to represent a release milestone that MAY be incompletely implemented in the source that is defined with a  `MAJOR.MINOR` version number. The `MAJOR.MINOR` version number SHALL NOT be intended to represent source code state at build time in build artifacts and MAY NOT be unique across build artifacts as work is carried out to achieve a `MAJOR.MINOR` version milestone.  
-- Development source status SHOULD be distinguished from release source status through the use of metadata defined by the OpenFV specification (see metadata guidelines below).
+- Development source status SHOULD be distinguished from release source status through the use of a Status metadata substring as defined in this specification.
 - The `MAJOR` version number SHOULD be set to 0 during the pre-production phase of development before the initial release.  `MAJOR` version number 0 SHALL indicate this pre-production phase of development.
 - The `MAJOR` version number MUST be set to 1 at the time of the initial release to end users. The conversion from `MAJOR` version number 0 to `MAJOR` version number 1 SHALL indicate the authors' acknowledgment that source code and build artifacts meet the OpenFV release definition.
 - Upon completion of the source code changes to achieve a release milestone, a version number increment SHOULD be performed immediately prior to making changes to the source code that are intended for a future release milestone.
@@ -115,40 +173,11 @@ The semantics for changes to the version number SHALL include an increment by th
 
 When the `MAJOR` version number is incremented, the `MINOR` version number SHALL be reset to a value of 000.
 
-
-### State Metadata Substring
-
-- The state substring SHALL define source code state at font build time.
-- The state substring is OPTIONAL.
-- The state substring MUST be located at substring POSITION TWO of the font version string.
-- The state substring MUST NOT include characters outside of the set: `a-zA-Z0-9._-`
-- The state substring MUST include the delimiter `[` as the initial character and the delimiter `]` as the final character of the substring.  The string contents inside these delimiters SHALL be defined as the state label.
-- The state label SHOULD be 50 characters or less.
-- The state substring MAY include a status substring (see guidelines below).
-
-
-### Status Metadata Substring
-
-- The status substring SHALL define the binary development/release status of source code and font builds as defined in the Definitions section.
-- The status substring is OPTIONAL.
-- The status substring MUST be located at substring POSITION TWO.
-- The status substring must use one of the following case sensitive formats with zero or one preceding space characters for version strings that DO NOT include a state substring:
-	- `DEV`
-	- `RELEASE`
-- The status substring MUST use one of the following case sensitive formats without preceding space characters for version strings that DO include a state substring:
-	- `-dev`
-	- `-release`
-
-### Other Metadata Substrings
-
-- Other Metadata substrings are OPTIONAL.
-- Other Metadata substrings MUST follow all version number substring and state/status substring data with semicolon delimiters followed by zero or one space character preceding the Other Metadata substring.
-- The version string MAY include more than one Other Metadata substrings.
-- Each Other Metadata substring included in the version string SHOULD be limited to 50 characters or less.
-
 ## Examples
 
-Examples of version strings that meet the OpenFV specification include:
+### name Table ID 5 Record
+
+Examples of name table ID 5 record version strings that meet the OpenFV specification include:
 
 ##### Version number only
 ```
@@ -176,8 +205,24 @@ Version 1.001; [abcd123]-release
 ##### Version number, source code state label, development status label, and other metadata
 
 ```
-Version 1.001; [abcd123]-dev; ttfautohint v1.7
-Version 1.001; [abcd123]-release; ttfautohint v1.7
+Version 1.001; [abcd123]-dev; here are metadata
+Version 1.001; [abcd123]-release; here are metadata
+```
+
+### head table fontRevision Record
+
+Examples of head table fontRevision record version strings that meet the OpenFV specification include:
+
+```
+1.001
+```
+
+```
+10.010
+```
+
+```
+100.100
 ```
 
 ## License

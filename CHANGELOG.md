@@ -1,5 +1,14 @@
 ## Changelog
 
+### v0.2.0
+
+- added head table, fontRevision record specification (#3)
+- added head table, fontRevision record examples
+- added introductory text re: head.fontRevision
+- text revisions to make the document more concise in each section
+- pulled version number semantics section out into its own third level header
+- added number.alpha formatting to the document
+
 ### v0.1.3
 
 - revised incorrect word "iterate" to "incremented" in Introduction

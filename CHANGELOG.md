@@ -1,6 +1,10 @@
 ## Changelog
 
-## v0.2.1
+### v0.2.2
+
+- added version number + other metadata examples to existing examples that meet OpenFV spec
+
+### v0.2.1
 
 - Revised Introduction and Rationale section with SemVer v OpenFV clarifications to emphasize that this is not an attempt at SemVer for typeface software, rather it is an attempt to create semantic versioning for typeface software. Hopefully this improves understanding that these semantics do not necessarily overlap between the SemVer approach and the approach here. They need to be defined as part of the work here.
 

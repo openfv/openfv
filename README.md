@@ -2,7 +2,7 @@
 
 # Open Font Version Specification
 
-**Version 0.2.1**
+**Version 0.2.2**
 
 **Status: Experimental, unstable draft**
 
@@ -207,6 +207,13 @@ Version 1.001; [abcd123]-release
 ```
 Version 1.001; [abcd123]-dev; here are metadata
 Version 1.001; [abcd123]-release; here are metadata
+```
+
+##### Version number and other metadata
+
+```
+Version 1.001; here are metadata
+Version 1.001; here are metadata; here are more metadata
 ```
 
 ### head table fontRevision Record

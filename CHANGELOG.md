@@ -1,5 +1,11 @@
 ## Changelog
 
+### v0.3.0
+
+- added Unicode code point definitions of period and space glyphs to Version number substring definition
+- text revisions for sentence structure
+- text revisions for grammar
+
 ### v0.2.2
 
 - added version number + other metadata examples to existing examples that meet OpenFV spec

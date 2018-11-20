@@ -1,5 +1,9 @@
 ## Changelog
 
+### v0.3.2
+
+- minor typo fix
+
 ### v0.3.1
 
 - added link to SIL Font Development Best Practices documentation in the Introduction

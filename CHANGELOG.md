@@ -1,5 +1,9 @@
 ## Changelog
 
+### v0.3.1
+
+- added link to SIL Font Development Best Practices documentation in the Introduction
+
 ### v0.3.0
 
 - added Unicode code point definitions of period and space glyphs to Version number substring definition
